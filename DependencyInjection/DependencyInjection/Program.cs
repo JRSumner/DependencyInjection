@@ -4,10 +4,8 @@ using DependencyInjection.Employee;
 
 Console.WriteLine("Dependency Inject Sandbox");
 
-var businessLayer = new EmployeeBL();
-var dataAccessLayer = new EmployeeDAL(); //Original implementation of the data access layer.
-var dataAccessLayerTest = new EmployeeDAL_Test(); //A Test implementation of the data access layer.
-var employeeList = businessLayer.ListAllEmployees(dataAccessLayerTest);
+var businessLayer = new EmployeeBL(new EmployeeDAL());
+var employeeList = businessLayer.ListAllEmployees();
 
 foreach (var employee in employeeList)
 {

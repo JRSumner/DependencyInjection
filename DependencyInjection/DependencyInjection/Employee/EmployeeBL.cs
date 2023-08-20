@@ -2,9 +2,16 @@
 {
 	public class EmployeeBL
 	{
-		public List<Employee> ListAllEmployees(IDataAccessLayer dataAccess)
+		private IDataAccessLayer _dataAccessLayer;
+
+		public EmployeeBL(IDataAccessLayer dataAccessLayer)
 		{
-			var employees = dataAccess.GetAllEmployees();
+			_dataAccessLayer = dataAccessLayer;
+		}
+
+		public List<Employee> ListAllEmployees()
+		{
+			var employees = _dataAccessLayer.GetAllEmployees();
 
 			return employees;
 		}
