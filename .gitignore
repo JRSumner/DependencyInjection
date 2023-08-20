@@ -49,3 +49,4 @@ project.lock.json
 .nuget
 .vs/
 obj/
+bin/
