@@ -1,6 +1,6 @@
 ﻿namespace DependencyInjection.Employee
 {
-	public class EmployeeDAL
+	public class EmployeeDAL : IDataAccessLayer
 	{
 		public List<Employee> GetAllEmployees()
 		{
