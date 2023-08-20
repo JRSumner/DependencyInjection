@@ -3,8 +3,12 @@
 using DependencyInjection.Employee;
 
 Console.WriteLine("Dependency Inject Sandbox");
+var key = KeyGenerator.GenerateKey();
 
-var businessLayer = new EmployeeBL(new EmployeeDAL());
+var factory = new DataAccessFactory();
+var dataAccess = factory.Create(key);
+
+var businessLayer = new EmployeeBL(dataAccess);
 var employeeList = businessLayer.ListAllEmployees();
 
 foreach (var employee in employeeList)
